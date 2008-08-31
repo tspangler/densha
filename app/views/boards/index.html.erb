@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<%= stylesheet_link_tag 'screen', :media => 'screen' %>
+	<title>Chichan | Board List</title>
+	
+</head>
+
+<body>
+	<div id="header">
+		<img src="/images/logo.png" width="251" height="179" alt="Chichan" />
+	</div>
+	
+	<div id="content">
+		<div id="left_side">
+		<h1>Chichan</h1>
+		
+			<div id="info">
+				<h2>What is Chichan?</h2>
+				<p>Chichan is an anonymous imageboard in the tradition of Asian forums. You don’t need to register a username in order to post, and everyone is free to contribute from the moment they arrive.</p>
+			</div>
+		</div>
+	
+		<div id="neighborhoodBoards">
+			<h2>Neighborhoods</h2>
+				<dl>
+					<% for board in @board_list %>
+						<dt><strong>/<%=h board.shortcode %></strong> - <%= link_to board.name, :action => 'index' %></dt>
+					<% end %>
+				</dl>
+		</div>
+	</div>
+
+</body>
+</html>

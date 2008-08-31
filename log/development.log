@@ -1,0 +1,1097 @@
+  [4;36;1mSQL (0.038093)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.010895)[0m   [0mCREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.001957)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000280)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateBoards (1)
+  [4;35;1mSQL (0.002775)[0m   [0mCREATE TABLE boards ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "shortcode" varchar(255) DEFAULT NULL, "name" varchar(255) DEFAULT NULL, "description" text DEFAULT NULL, "alert" varchar(255) DEFAULT NULL, "password" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.002455)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000302)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000264)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000208)[0m   [0mPRAGMA index_list(boards)[0m
+  [4;36;1mSQL (0.000272)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000245)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000207)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePosts (2)
+  [4;35;1mSQL (0.086155)[0m   [0mCREATE TABLE posts ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255) DEFAULT 'Anonymous', "tripcode" varchar(255) DEFAULT NULL, "email" varchar(255) DEFAULT NULL, "comment" text DEFAULT NULL, "attachment" integer DEFAULT NULL, "parent_thread" integer DEFAULT NULL, "deletion_password" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.002175)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000398)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000365)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000100)[0m   [0mPRAGMA index_list(boards)[0m
+  [4;36;1mSQL (0.000073)[0m   [0;1mPRAGMA index_list(posts)[0m
+  [4;36;1mBoard Load (0.000159)[0m   [0;1mSELECT * FROM boards WHERE (boards."id" = 1) [0m
+  [4;35;1mBoard Load (0.000297)[0m   [0mSELECT * FROM boards WHERE (boards."id" = 1) [0m
+  [4;36;1mBoard Load (0.000277)[0m   [0;1mSELECT * FROM boards WHERE (boards."id" = 0) [0m
+  [4;35;1mBoard Load (0.000257)[0m   [0mSELECT * FROM boards [0m
+  [4;36;1mSQL (0.000426)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000505)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mBoard Create (0.000661)[0m   [0;1mINSERT INTO boards ("name", "updated_at", "shortcode", "description", "password", "alert", "created_at") VALUES(NULL, '2008-08-28 02:12:53', NULL, NULL, NULL, NULL, '2008-08-28 02:12:53')[0m
+  [4;35;1mBoard Create (0.000521)[0m   [0mINSERT INTO boards ("name", "updated_at", "shortcode", "description", "password", "alert", "created_at") VALUES('Lakeview', '2008-08-28 02:13:38', 'lv', 'From Boystown to Wrigley Field, Belmont station to Belmont Harbor', NULL, NULL, '2008-08-28 02:13:38')[0m
+  [4;36;1mBoard Load (0.000275)[0m   [0;1mSELECT * FROM boards WHERE (boards."id" = 0) [0m
+  [4;35;1mBoard Load (0.000473)[0m   [0mSELECT * FROM boards WHERE (boards."id" = 1) [0m
+  [4;36;1mBoard Load (0.000536)[0m   [0;1mSELECT * FROM boards WHERE (boards."id" = 1) [0m
+  [4;35;1mBoard Destroy (0.000747)[0m   [0m DELETE FROM boards
+ WHERE "id" = 1
+[0m
+  [4;36;1mBoard Load (0.000479)[0m   [0;1mSELECT * FROM boards WHERE (boards."id" = 2) [0m
+  [4;35;1mBoard Destroy (0.000394)[0m   [0m DELETE FROM boards
+ WHERE "id" = 2
+[0m
+  [4;36;1mBoard Create (0.000827)[0m   [0;1mINSERT INTO boards ("name", "updated_at", "shortcode", "description", "password", "alert", "created_at") VALUES('Lincoln Park', '2008-08-28 02:17:33', 'lp', 'It used to be one of the city''s worst ghettos. Now it''s one of the city''s nicest neighborhoods.', NULL, NULL, '2008-08-28 02:17:33')[0m
+  [4;35;1mBoard Update (0.000766)[0m   [0mUPDATE boards SET "created_at" = '2008-08-28 02:13:38', "name" = 'Lakeview', "alert" = NULL, "description" = 'From Boystown to Wrigley Field, Belmont station to Belmont Harbor', "password" = NULL, "shortcode" = 'lv', "updated_at" = '2008-08-28 02:19:00' WHERE "id" = 2[0m
+  [4;36;1mBoard Load (0.000477)[0m   [0;1mSELECT * FROM boards [0m
+  [4;35;1mBoard Load (0.000276)[0m   [0mSELECT * FROM boards WHERE (boards."id" = 4) [0m
+  [4;36;1mBoard Load (0.000301)[0m   [0;1mSELECT * FROM boards WHERE (boards."id" = 2) [0m
+  [4;35;1mBoard Create (0.000819)[0m   [0mINSERT INTO boards ("name", "updated_at", "shortcode", "description", "password", "alert", "created_at") VALUES('Lakeview', '2008-08-28 02:19:55', 'lv', 'From Boystown to Wrigley Field, Belmont station to Belmont Harbor', NULL, NULL, '2008-08-28 02:19:55')[0m
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-28 08:16:53) [GET]
+  Session ID: 5ba84cd57c4f959412d325537e6e4ee8
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001173)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01163 (85 reqs/sec) | Rendering: 0.00521 (44%) | DB: 0.00117 (10%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-29 19:38:20) [GET]
+  Session ID: 48e7cf72e6714a4c8102f2bb17d7bb60
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.002682)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.04191 (23 reqs/sec) | Rendering: 0.01549 (36%) | DB: 0.00268 (6%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:21:53) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001234)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01204 (83 reqs/sec) | Rendering: 0.00544 (45%) | DB: 0.00123 (10%) | 200 OK [http://localhost/boards]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-08-30 18:21:53) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:22:12) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001080)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01002 (99 reqs/sec) | Rendering: 0.00406 (40%) | DB: 0.00108 (10%) | 200 OK [http://localhost/boards]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-08-30 18:22:12) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:22:16) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001097)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00872 (114 reqs/sec) | Rendering: 0.00284 (32%) | DB: 0.00110 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-08-30 18:22:16) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-08-30 18:22:21) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-08-30 18:22:25) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/logo.png" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:23:04) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001159)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00947 (105 reqs/sec) | Rendering: 0.00304 (32%) | DB: 0.00116 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:23:05) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001077)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00961 (104 reqs/sec) | Rendering: 0.00343 (35%) | DB: 0.00108 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:23:21) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001059)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00883 (113 reqs/sec) | Rendering: 0.00290 (32%) | DB: 0.00106 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:23:37) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001520)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01047 (95 reqs/sec) | Rendering: 0.00304 (29%) | DB: 0.00152 (14%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:23:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001063)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00949 (105 reqs/sec) | Rendering: 0.00350 (36%) | DB: 0.00106 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:23:54) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001051)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00917 (109 reqs/sec) | Rendering: 0.00304 (33%) | DB: 0.00105 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:23:54) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001209)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01165 (85 reqs/sec) | Rendering: 0.00471 (40%) | DB: 0.00121 (10%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:24:58) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.066305)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.07495 (13 reqs/sec) | Rendering: 0.00376 (5%) | DB: 0.06630 (88%) | 200 OK [http://localhost/boards]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-08-30 18:24:58) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/stylesheets/images/header_bg.jpg" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:25:04) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001222)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01566 (63 reqs/sec) | Rendering: 0.00485 (30%) | DB: 0.00122 (7%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:25:19) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001086)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00908 (110 reqs/sec) | Rendering: 0.00304 (33%) | DB: 0.00109 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:25:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001245)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00938 (106 reqs/sec) | Rendering: 0.00320 (34%) | DB: 0.00125 (13%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:26:09) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001177)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01014 (98 reqs/sec) | Rendering: 0.00298 (29%) | DB: 0.00118 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:26:10) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001026)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00909 (110 reqs/sec) | Rendering: 0.00291 (32%) | DB: 0.00103 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:26:20) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001076)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00870 (114 reqs/sec) | Rendering: 0.00283 (32%) | DB: 0.00108 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:27:11) [GET]
+  Session ID: f261d2aebd8a0f816505affc93017f1e
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001226)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00920 (108 reqs/sec) | Rendering: 0.00296 (32%) | DB: 0.00123 (13%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:28:43) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001449)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01011 (98 reqs/sec) | Rendering: 0.00314 (31%) | DB: 0.00145 (14%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:29:09) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001078)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00884 (113 reqs/sec) | Rendering: 0.00283 (32%) | DB: 0.00108 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:29:10) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001110)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00890 (112 reqs/sec) | Rendering: 0.00286 (32%) | DB: 0.00111 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:29:20) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001010)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00870 (114 reqs/sec) | Rendering: 0.00290 (33%) | DB: 0.00101 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:29:22) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001093)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00872 (114 reqs/sec) | Rendering: 0.00283 (32%) | DB: 0.00109 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:29:22) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001254)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00909 (110 reqs/sec) | Rendering: 0.00286 (31%) | DB: 0.00125 (13%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:29:23) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001077)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00970 (103 reqs/sec) | Rendering: 0.00299 (30%) | DB: 0.00108 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:29:48) [GET]
+  Session ID: bca7f64e6d1c112479c9252bbb8f7f2f
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001077)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00918 (108 reqs/sec) | Rendering: 0.00294 (32%) | DB: 0.00108 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:30:17) [GET]
+  Session ID: f0d385b9f392bcd3753214dde9f3fa05
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001027)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00885 (112 reqs/sec) | Rendering: 0.00288 (32%) | DB: 0.00103 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:31:27) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001206)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01017 (98 reqs/sec) | Rendering: 0.00408 (40%) | DB: 0.00121 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:32:01) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001094)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00870 (114 reqs/sec) | Rendering: 0.00282 (32%) | DB: 0.00109 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:32:05) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001071)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00874 (114 reqs/sec) | Rendering: 0.00283 (32%) | DB: 0.00107 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:32:11) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001124)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00876 (114 reqs/sec) | Rendering: 0.00285 (32%) | DB: 0.00112 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:32:14) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001072)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00969 (103 reqs/sec) | Rendering: 0.00321 (33%) | DB: 0.00107 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:32:19) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001421)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01298 (77 reqs/sec) | Rendering: 0.00394 (30%) | DB: 0.00142 (10%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:32:25) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001066)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00877 (114 reqs/sec) | Rendering: 0.00287 (32%) | DB: 0.00107 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:32:32) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001392)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01411 (70 reqs/sec) | Rendering: 0.00465 (32%) | DB: 0.00139 (9%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:32:38) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001068)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00864 (115 reqs/sec) | Rendering: 0.00285 (33%) | DB: 0.00107 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:32:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001054)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00883 (113 reqs/sec) | Rendering: 0.00294 (33%) | DB: 0.00105 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:32:56) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001209)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00919 (108 reqs/sec) | Rendering: 0.00303 (32%) | DB: 0.00121 (13%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:33:05) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001046)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00904 (110 reqs/sec) | Rendering: 0.00294 (32%) | DB: 0.00105 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:33:44) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001088)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01019 (98 reqs/sec) | Rendering: 0.00410 (40%) | DB: 0.00109 (10%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:33:48) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001059)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01015 (98 reqs/sec) | Rendering: 0.00420 (41%) | DB: 0.00106 (10%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:50:30) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001063)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01081 (92 reqs/sec) | Rendering: 0.00469 (43%) | DB: 0.00106 (9%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:52:26) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001276)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01023 (97 reqs/sec) | Rendering: 0.00306 (29%) | DB: 0.00128 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:53:07) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001034)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01035 (96 reqs/sec) | Rendering: 0.00442 (42%) | DB: 0.00103 (9%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:53:32) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001054)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.08011 (12 reqs/sec) | Rendering: 0.07431 (92%) | DB: 0.00105 (1%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:54:20) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001065)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00926 (107 reqs/sec) | Rendering: 0.00303 (32%) | DB: 0.00107 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:54:23) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001042)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00905 (110 reqs/sec) | Rendering: 0.00290 (32%) | DB: 0.00104 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 18:54:44) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001226)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01101 (90 reqs/sec) | Rendering: 0.00299 (27%) | DB: 0.00123 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:00:46) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001058)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00871 (114 reqs/sec) | Rendering: 0.00285 (32%) | DB: 0.00106 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:00:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001021)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00880 (113 reqs/sec) | Rendering: 0.00306 (34%) | DB: 0.00102 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:00:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001053)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00865 (115 reqs/sec) | Rendering: 0.00288 (33%) | DB: 0.00105 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:00:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001148)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.07820 (12 reqs/sec) | Rendering: 0.00303 (3%) | DB: 0.00115 (1%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:00:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001144)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01012 (98 reqs/sec) | Rendering: 0.00328 (32%) | DB: 0.00114 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:01:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001076)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00872 (114 reqs/sec) | Rendering: 0.00286 (32%) | DB: 0.00108 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:01:01) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001059)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00881 (113 reqs/sec) | Rendering: 0.00293 (33%) | DB: 0.00106 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:01:21) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.033406)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.04372 (22 reqs/sec) | Rendering: 0.00413 (9%) | DB: 0.03341 (76%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:02:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.032494)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.04023 (24 reqs/sec) | Rendering: 0.00294 (7%) | DB: 0.03249 (80%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:02:02) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001056)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00915 (109 reqs/sec) | Rendering: 0.00310 (33%) | DB: 0.00106 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:02:08) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001104)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.08715 (11 reqs/sec) | Rendering: 0.00297 (3%) | DB: 0.00110 (1%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:02:12) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001058)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00939 (106 reqs/sec) | Rendering: 0.00299 (31%) | DB: 0.00106 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:02:24) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001408)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00978 (102 reqs/sec) | Rendering: 0.00315 (32%) | DB: 0.00141 (14%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:03:54) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001144)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00949 (105 reqs/sec) | Rendering: 0.00316 (33%) | DB: 0.00114 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:03:55) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001495)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01262 (79 reqs/sec) | Rendering: 0.00411 (32%) | DB: 0.00149 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:03:58) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001062)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00887 (112 reqs/sec) | Rendering: 0.00284 (32%) | DB: 0.00106 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:27:19) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001272)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01069 (93 reqs/sec) | Rendering: 0.00438 (40%) | DB: 0.00127 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:27:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001420)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00966 (103 reqs/sec) | Rendering: 0.00305 (31%) | DB: 0.00142 (14%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:27:37) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001047)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00888 (112 reqs/sec) | Rendering: 0.00302 (33%) | DB: 0.00105 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:27:43) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001095)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00982 (101 reqs/sec) | Rendering: 0.00309 (31%) | DB: 0.00109 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:27:48) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001396)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01260 (79 reqs/sec) | Rendering: 0.00408 (32%) | DB: 0.00140 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:27:52) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001012)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00891 (112 reqs/sec) | Rendering: 0.00297 (33%) | DB: 0.00101 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:27:53) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001363)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01249 (80 reqs/sec) | Rendering: 0.00413 (33%) | DB: 0.00136 (10%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:27:55) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001080)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00904 (110 reqs/sec) | Rendering: 0.00285 (31%) | DB: 0.00108 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:28:04) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001172)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00965 (103 reqs/sec) | Rendering: 0.00307 (31%) | DB: 0.00117 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:28:11) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001098)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00923 (108 reqs/sec) | Rendering: 0.00291 (31%) | DB: 0.00110 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:28:14) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001117)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00922 (108 reqs/sec) | Rendering: 0.00297 (32%) | DB: 0.00112 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:28:16) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001054)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00889 (112 reqs/sec) | Rendering: 0.00290 (32%) | DB: 0.00105 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:30:13) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001044)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00882 (113 reqs/sec) | Rendering: 0.00293 (33%) | DB: 0.00104 (11%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:37:17) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001048)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00916 (109 reqs/sec) | Rendering: 0.00316 (34%) | DB: 0.00105 (11%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:37:18) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001069)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00936 (106 reqs/sec) | Rendering: 0.00299 (31%) | DB: 0.00107 (11%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:37:40) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001217)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00943 (105 reqs/sec) | Rendering: 0.00298 (31%) | DB: 0.00122 (12%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:37:42) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001227)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00991 (100 reqs/sec) | Rendering: 0.00311 (31%) | DB: 0.00123 (12%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:38:27) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001072)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00880 (113 reqs/sec) | Rendering: 0.00285 (32%) | DB: 0.00107 (12%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:38:31) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001285)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00943 (106 reqs/sec) | Rendering: 0.00288 (30%) | DB: 0.00129 (13%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:38:37) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001014)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00898 (111 reqs/sec) | Rendering: 0.00291 (32%) | DB: 0.00101 (11%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:40:15) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001141)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00888 (112 reqs/sec) | Rendering: 0.00294 (33%) | DB: 0.00114 (12%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:40:17) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001474)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01199 (83 reqs/sec) | Rendering: 0.00517 (43%) | DB: 0.00147 (12%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:40:32) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001041)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00911 (109 reqs/sec) | Rendering: 0.00295 (32%) | DB: 0.00104 (11%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:40:35) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001042)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00903 (110 reqs/sec) | Rendering: 0.00289 (32%) | DB: 0.00104 (11%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:40:36) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001054)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00896 (111 reqs/sec) | Rendering: 0.00297 (33%) | DB: 0.00105 (11%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:50:12) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001042)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00956 (104 reqs/sec) | Rendering: 0.00294 (30%) | DB: 0.00104 (10%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:50:15) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001420)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00942 (106 reqs/sec) | Rendering: 0.00303 (32%) | DB: 0.00142 (15%) | 200 OK [http://localhost/boards]
