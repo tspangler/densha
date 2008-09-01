@@ -1095,3 +1095,19 @@ Processing BoardsController#index (for 127.0.0.1 at 2008-08-30 19:50:15) [GET]
   [4;36;1mBoard Load (0.001420)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
 Rendering boards/index
 Completed in 0.00942 (106 reqs/sec) | Rendering: 0.00303 (32%) | DB: 0.00142 (15%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-31 19:31:15) [GET]
+  Session ID: 5f618c3a64b6b0b980879d2a5bb5529f
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001345)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.01429 (69 reqs/sec) | Rendering: 0.00586 (41%) | DB: 0.00135 (9%) | 200 OK [http://localhost/boards]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-08-31 19:31:52) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001002)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering boards/index
+Completed in 0.00875 (114 reqs/sec) | Rendering: 0.00285 (32%) | DB: 0.00100 (11%) | 200 OK [http://localhost/]
