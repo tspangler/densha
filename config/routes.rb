@@ -28,6 +28,10 @@ ActionController::Routing::Routes.draw do |map|
   # map.root :controller => "welcome"
   
   map.root :controller => "boards"
+  
+  # Map routes for boards based on shortcodes
+  # aka chichan.org/lv maps to the Lakeview board with shortcode 'lv'
+  map.connect '/:shortcode', :controller => 'boards', :action => 'show'
 
   # See how all your routes lay out with "rake routes"
 

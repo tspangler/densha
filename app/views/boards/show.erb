@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<%= stylesheet_link_tag 'screen', :media => 'screen' %>
+	<title>/<%=h @board_info.shortcode %>/ - <%=h @board_info.name %> | Chichan</title>
+	
+</head>
+
+<body>
+	<div id="header">
+		<img src="/images/logo.png" width="251" height="179" alt="Chichan" />
+	</div>
+	
+	<div id="content">
+		<h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
+		<p><%=h @board_info.description %></p>
+
+			<% for post in @posts %>
+				<h2><%=h post.username %></h2>
+				<p><%=h post.comment %></p>
+			<% end %>
+	</div>
+
+</body>
+</html>

@@ -29,6 +29,7 @@
 				<dl>
 					<% for board in @board_list %>
 						<dt><strong>/<%=h board.shortcode %></strong> - <%= link_to board.name, :action => 'index' %></dt>
+						<dd><%=h board.description %></dd>
 					<% end %>
 				</dl>
 		</div>
