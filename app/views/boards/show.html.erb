@@ -1,0 +1,35 @@
+		<h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
+		<p><%=h @board_info.description %></p>
+
+		<% if flash[:notice] %>
+			<p><strong><%=h flash[:notice] %></strong></p>
+		<% end %>
+
+			<% for post in @posts %>
+				<h2><%=h post.username %></h2>
+				<p><%=h post.comment %></p>
+			<% end %>
+			
+		<h2>Post a new thread</h2>
+			<%= error_messages_for :post -%>
+			
+			<% form_for :post, :url => {:controller => 'posts', :action => 'create'} do |form| %>
+				<%= form.label :username %>
+				<%= form.text_field :username, :size => 25, :class => 'textbox' %>
+
+				<br/>
+				
+				<%= form.label :email %>
+				<%= form.text_field :email, :size => 25, :class => 'textbox' %>
+				
+				<br/>
+				
+				<% # TODO: Add a subject field and migration task to the database %>
+								
+				<%= form.label :comment %>
+				<%= form.text_area :comment, :rows => 4, :class => 'textbox' %>
+
+				<br/>
+				
+				<%= submit_tag 'post new thread', :class => 'submit' %>
+			<% end %>

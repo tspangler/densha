@@ -2,8 +2,9 @@ class BoardsController < ApplicationController
   # Show all posts in a given board
   def show
     @board_info = Board.find_by_shortcode(params[:shortcode])
-    @posts = Post.find_all_by_parent_board(@board_info.id)
+    @posts = Post.find_all_by_parent_board(params[:shortcode])
     
+    @title = "/#{@board_info.shortcode}/ - #{@board_info.name}"
     # TODO: Assemble hashes for threads here, as opposed to in the view
   end
 

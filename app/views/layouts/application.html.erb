@@ -5,8 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<%= stylesheet_link_tag 'screen', :media => 'screen' %>
-	<title>/<%=h @board_info.shortcode %>/ - <%=h @board_info.name %> | Chichan</title>
-	
+	<title><%= "#{@title} | " if @title %>Chichan</title>
 </head>
 
 <body>
@@ -15,14 +14,7 @@
 	</div>
 	
 	<div id="content">
-		<h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
-		<p><%=h @board_info.description %></p>
-
-			<% for post in @posts %>
-				<h2><%=h post.username %></h2>
-				<p><%=h post.comment %></p>
-			<% end %>
+		<%= yield :layout %>
 	</div>
-
 </body>
 </html>

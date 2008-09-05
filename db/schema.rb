@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "boards", :force => true do |t|
     t.string   "shortcode"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 3) do
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "username",          :default => "Anonymous"
+    t.string   "username",                        :default => "Anonymous"
     t.string   "tripcode"
     t.string   "email"
     t.text     "comment"
@@ -31,7 +31,8 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "deletion_password"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "parent_board"
+    t.string   "subject",           :limit => 40
+    t.string   "parent_board"
   end
 
 end
