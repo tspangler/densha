@@ -1,61 +1,20 @@
-body {
-	margin:0;
-	padding:0;
-	
-	background:#fff;
-	font-family:Helvetica,sans-serif;
-	font-size:13px;
-}
+body { margin:0; padding:0; background:#fff; font:13px Helvetica,sans-serif; }
 
 /*	Links	*/
-	a {
-		color:#ff2905;
-	}
+a { color:#ff2905; }
 
 /*	Basic structural divs	*/
-div#header {
-	margin:0;
-	padding:0;
-	
-	background:#fff url('/images/header_bg.jpg') no-repeat right top;
-	width:100%;
-	height:179px;
-	
-	border-bottom:1px solid black;
-}
-
-div#content {
-	padding:0 0 0 32px;
-}
-
-div#left_side {
-	width:200px;
-	float:left;
-	padding:0 20px 0 0;
-}
-
-div#left_side div {
-	padding:0 5px 5px 5px;;
-	background:#b8def1;
-}
+div#header { margin:0; padding:0; background:#fff url('/images/header_bg.jpg') no-repeat right top; width:100%; height:179px; border-bottom:1px solid black; }
+div#content { padding:0 0 0 32px; }
+div#left_side {	width:200px; float:left; padding:0 20px 0 0; }
+div#left_side div { padding:0 5px 5px 5px; background:#b8def1; }
 
 /*	Headers	*/
-h1 {
-	margin:0;
-	
-	font-size:48px;
-	letter-spacing:-2px;
-}
+h1 { margin:0; font-size:48px; letter-spacing:-2px; }
 
 /*	Lists	*/
-dt {
-	font: bold 1.5em Helvetica, Arial, sans-serif;
-	letter-spacing:-1px;	
-}
-
-dd {
-	color:#555;
-}
+dt { font: bold 1.5em Helvetica, Arial, sans-serif; letter-spacing:-1px; }
+dd { color:#555; }
 
 /*	Forms	*/
 form label { float:left; width:100px; text-transform:lowercase; letter-spacing:-1px; color:#a1a1a1; font: bold 1.2em Helvetica, Arial, sans-serif; }

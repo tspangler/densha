@@ -6251,3 +6251,464 @@ Processing BoardsController#show (for 127.0.0.1 at 2008-09-05 01:36:22) [GET]
 Rendering template within layouts/application
 Rendering boards/show
 Completed in 0.01873 (53 reqs/sec) | Rendering: 0.00423 (22%) | DB: 0.00059 (3%) | 200 OK [http://localhost/lg]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-05 08:22:32) [GET]
+  Session ID: 6cf451f59a471f9a889ab15078651a6e
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.003089)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.04756 (21 reqs/sec) | Rendering: 0.03595 (75%) | DB: 0.00309 (6%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-05 08:22:35) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000277)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000159)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lg') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01615 (61 reqs/sec) | Rendering: 0.00437 (27%) | DB: 0.00044 (2%) | 200 OK [http://localhost/lg]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-05 08:22:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDc4MTUzNzNlYTgyODUwMjQ1MWYzNDQyNzkzMzJm%0AZjQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b24466966f9af950dee62ad49e4cd8c674756c08
+  Parameters: {"shortcode"=>"rp", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000271)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'rp') LIMIT 1[0m
+  [4;36;1mPost Load (0.000163)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'rp') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01421 (70 reqs/sec) | Rendering: 0.00212 (14%) | DB: 0.00043 (3%) | 200 OK [http://localhost/rp]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-05 08:22:47) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDc4MTUzNzNlYTgyODUwMjQ1MWYzNDQyNzkzMzJm%0AZjQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b24466966f9af950dee62ad49e4cd8c674756c08
+  Parameters: {"shortcode"=>"lv", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000274)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lv') LIMIT 1[0m
+  [4;36;1mPost Load (0.000162)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lv') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01393 (71 reqs/sec) | Rendering: 0.00211 (15%) | DB: 0.00044 (3%) | 200 OK [http://localhost/lv]
+
+
+Processing BoardsController#index (for 192.168.1.4 at 2008-09-05 14:33:41) [GET]
+  Session ID: c5d21f889ea9039a76e050f40292efb1
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001577)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.01439 (69 reqs/sec) | Rendering: 0.00730 (50%) | DB: 0.00158 (10%) | 200 OK [http://symsonic.local/]
+
+
+Processing BoardsController#show (for 192.168.1.4 at 2008-09-05 14:33:57) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"shortcode"=>"faq", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000150)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'faq') LIMIT 1[0m
+  [4;36;1mPost Load (0.000171)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'faq') [0m
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.shortcode):
+    /app/controllers/boards_controller.rb:7:in `show'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing BoardsController#show (for 192.168.1.4 at 2008-09-05 14:34:02) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000276)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" IS NULL) LIMIT 1[0m
+  [4;36;1mPost Load (0.000540)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" IS NULL) [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01915 (52 reqs/sec) | Rendering: 0.00600 (31%) | DB: 0.00082 (4%) | 200 OK [http://symsonic.local/boards/show]
+
+
+Processing BoardsController#show (for 192.168.1.4 at 2008-09-05 14:34:05) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTg3MWRlNzE5ODdkYzE1YjA5NDVkNzAyMDA1YjQ4%0AZDYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9d18c3b2650aa69c2218a9f98ac2fc89fd44ab7b
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000284)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000157)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lg') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01495 (66 reqs/sec) | Rendering: 0.00229 (15%) | DB: 0.00044 (2%) | 200 OK [http://symsonic.local/lg]
+
+
+Processing BoardsController#show (for 192.168.1.4 at 2008-09-05 14:34:10) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTg3MWRlNzE5ODdkYzE1YjA5NDVkNzAyMDA1YjQ4%0AZDYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9d18c3b2650aa69c2218a9f98ac2fc89fd44ab7b
+  Parameters: {"shortcode"=>"lp", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000280)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lp') LIMIT 1[0m
+  [4;36;1mPost Load (0.000163)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lp') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01419 (70 reqs/sec) | Rendering: 0.00221 (15%) | DB: 0.00044 (3%) | 200 OK [http://symsonic.local/lp]
+
+
+Processing BoardsController#show (for 192.168.1.4 at 2008-09-05 14:34:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTg3MWRlNzE5ODdkYzE1YjA5NDVkNzAyMDA1YjQ4%0AZDYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9d18c3b2650aa69c2218a9f98ac2fc89fd44ab7b
+  Parameters: {"shortcode"=>"lv", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000277)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lv') LIMIT 1[0m
+  [4;36;1mPost Load (0.000160)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lv') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01396 (71 reqs/sec) | Rendering: 0.00216 (15%) | DB: 0.00044 (3%) | 200 OK [http://symsonic.local/lv]
+
+
+Processing BoardsController#show (for 192.168.1.4 at 2008-09-05 14:34:21) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTg3MWRlNzE5ODdkYzE1YjA5NDVkNzAyMDA1YjQ4%0AZDYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9d18c3b2650aa69c2218a9f98ac2fc89fd44ab7b
+  Parameters: {"shortcode"=>"rp", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000278)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'rp') LIMIT 1[0m
+  [4;36;1mPost Load (0.000158)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'rp') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01394 (71 reqs/sec) | Rendering: 0.00217 (15%) | DB: 0.00044 (3%) | 200 OK [http://symsonic.local/rp]
+
+
+Processing BoardsController#show (for 192.168.1.4 at 2008-09-05 14:34:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTg3MWRlNzE5ODdkYzE1YjA5NDVkNzAyMDA1YjQ4%0AZDYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9d18c3b2650aa69c2218a9f98ac2fc89fd44ab7b
+  Parameters: {"shortcode"=>"up", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000283)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'up') LIMIT 1[0m
+  [4;36;1mPost Load (0.000157)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'up') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01368 (73 reqs/sec) | Rendering: 0.00210 (15%) | DB: 0.00044 (3%) | 200 OK [http://symsonic.local/up]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-06 20:10:41) [GET]
+  Session ID: feea99baeda0f00d7203f0de61b40242
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.002961)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.05897 (16 reqs/sec) | Rendering: 0.04171 (70%) | DB: 0.00296 (5%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-06 21:00:01) [GET]
+  Session ID: ffc32b19944d727d665c3a146d7d39ec
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.011311)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.04167 (23 reqs/sec) | Rendering: 0.00562 (13%) | DB: 0.01131 (27%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-06 21:00:02) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001394)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.01019 (98 reqs/sec) | Rendering: 0.00382 (37%) | DB: 0.00139 (13%) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.000399)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mBoard Load (0.000223)[0m   [0mSELECT * FROM boards WHERE (boards."name" = '/boards/show') LIMIT 1[0m
+  [4;36;1mBoard Load (0.001043)[0m   [0;1mSELECT * FROM boards [0m
+  [4;35;1mBoard Load (0.000513)[0m   [0mSELECT * FROM boards WHERE (boards."id" = 8) [0m
+  [4;36;1mBoard Destroy (0.000576)[0m   [0;1m DELETE FROM boards
+ WHERE "id" = 8
+[0m
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-06 21:01:42) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001396)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.01018 (98 reqs/sec) | Rendering: 0.00373 (36%) | DB: 0.00140 (13%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:01:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"shortcode"=>"lv", "action"=>"show", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.000292)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lv') LIMIT 1[0m
+  [4;35;1mPost Load (0.000156)[0m   [0mSELECT * FROM posts WHERE (posts."parent_board" = 'lv') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01746 (57 reqs/sec) | Rendering: 0.00476 (27%) | DB: 0.00045 (2%) | 200 OK [http://localhost/lv]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:01:52) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.000291)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;35;1mPost Load (0.000178)[0m   [0mSELECT * FROM posts WHERE (posts."parent_board" = 'lg') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.08722 (11 reqs/sec) | Rendering: 0.07457 (85%) | DB: 0.00047 (0%) | 200 OK [http://localhost/lg]
+  [4;35;1mPost Load (0.001140)[0m   [0mSELECT * FROM posts [0m
+  [4;36;1mPost Load (0.001126)[0m   [0;1mSELECT * FROM posts [0m
+  [4;35;1mPost Load (0.000286)[0m   [0mSELECT * FROM posts WHERE (posts."id" = 7) [0m
+  [4;36;1mPost Load (0.000566)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = 27) [0m
+  [4;35;1mPost Update (0.000856)[0m   [0mUPDATE posts SET "created_at" = '2008-09-05 01:36:22', "attachment" = NULL, "email" = '', "subject" = NULL, "deletion_password" = NULL, "tripcode" = NULL, "username" = 'Anonymous', "parent_board" = 'lv', "comment" = 'Anonymous! Yes!', "parent_thread" = NULL, "updated_at" = '2008-09-06 21:10:15' WHERE "id" = 27[0m
+  [4;36;1mPost Load (0.000650)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = 27) [0m
+  [4;35;1mPost Load (0.001020)[0m   [0mSELECT * FROM posts [0m
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:10:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"shortcode"=>"lv", "action"=>"show", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.000333)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lv') LIMIT 1[0m
+  [4;35;1mPost Load (0.000341)[0m   [0mSELECT * FROM posts WHERE (posts."parent_board" = 'lv') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01613 (61 reqs/sec) | Rendering: 0.00350 (21%) | DB: 0.00067 (4%) | 200 OK [http://localhost/lv]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:10:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"shortcode"=>"lv", "action"=>"show", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.000281)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lv') LIMIT 1[0m
+  [4;35;1mPost Load (0.000334)[0m   [0mSELECT * FROM posts WHERE (posts."parent_board" = 'lv') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01590 (62 reqs/sec) | Rendering: 0.00344 (21%) | DB: 0.00061 (3%) | 200 OK [http://localhost/lv]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2008-09-06 21:11:48) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"commit"=>"post new thread", "post"=>{"username"=>"Andy Anonymous", "comment"=>"NOKO SAGE AGE WEEABOO JYANAI", "email"=>"andyanon@example.com"}, "authenticity_token"=>"408eabe6a41449023abbae968dcbfac4891dcfff", "action"=>"create", "controller"=>"posts"}
+  [4;36;1mPost Create (0.000429)[0m   [0;1mINSERT INTO posts ("updated_at", "parent_thread", "attachment", "username", "deletion_password", "subject", "tripcode", "comment", "created_at", "email", "parent_board") VALUES('2008-09-06 21:11:48', NULL, NULL, 'Andy Anonymous', NULL, NULL, NULL, 'NOKO SAGE AGE WEEABOO JYANAI', '2008-09-06 21:11:48', 'andyanon@example.com', NULL)[0m
+Redirected to http://localhost:3000/lv
+Completed in 0.01262 (79 reqs/sec) | DB: 0.00043 (3%) | 302 Found [http://localhost/posts/create]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:11:48) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIhlQb3N0IGFkZGVkIHRvIGJvYXJkIAY6CkB1c2VkewY7%0AB1Q%3D--0f15a2135a955803fc2dbdd2df7bb42d9fffe6a4
+  Parameters: {"shortcode"=>"lv", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000277)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lv') LIMIT 1[0m
+  [4;36;1mPost Load (0.000325)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lv') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01570 (63 reqs/sec) | Rendering: 0.00345 (21%) | DB: 0.00060 (3%) | 200 OK [http://localhost/lv]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2008-09-06 21:12:59) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"commit"=>"post new thread", "post"=>{"username"=>"wat", "comment"=>"wat iz dat", "email"=>""}, "authenticity_token"=>"408eabe6a41449023abbae968dcbfac4891dcfff", "action"=>"create", "controller"=>"posts"}
+  [4;35;1mPost Create (0.000405)[0m   [0mINSERT INTO posts ("updated_at", "parent_thread", "attachment", "username", "deletion_password", "subject", "tripcode", "comment", "created_at", "email", "parent_board") VALUES('2008-09-06 21:12:59', NULL, NULL, 'wat', NULL, NULL, NULL, 'wat iz dat', '2008-09-06 21:12:59', '', NULL)[0m
+Redirected to http://localhost:3000/lv
+Completed in 0.01249 (80 reqs/sec) | DB: 0.00041 (3%) | 302 Found [http://localhost/posts/create]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:12:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIhlQb3N0IGFkZGVkIHRvIGJvYXJkIAY6CkB1c2VkewY7%0AB1Q%3D--0f15a2135a955803fc2dbdd2df7bb42d9fffe6a4
+  Parameters: {"shortcode"=>"lv", "action"=>"show", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.000301)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lv') LIMIT 1[0m
+  [4;35;1mPost Load (0.000333)[0m   [0mSELECT * FROM posts WHERE (posts."parent_board" = 'lv') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01583 (63 reqs/sec) | Rendering: 0.00358 (22%) | DB: 0.00063 (4%) | 200 OK [http://localhost/lv]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:15:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"shortcode"=>"lv", "action"=>"show", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.000291)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lv') LIMIT 1[0m
+  [4;35;1mPost Load (0.000377)[0m   [0mSELECT * FROM posts WHERE (posts."parent_board" = 'lv') [0m
+Rendering template within layouts/application
+Rendering boards/show
+
+
+ActionView::TemplateError (undefined method `merge' for "lv":String) on line #34 of boards/show.html.erb:
+31: 
+32: 				<br/>
+33: 				
+34: 				<%= form.hidden_field :parent_board, @board_info.shortcode %>
+35: 				<%= submit_tag 'post new thread', :class => 'submit' %>
+36: 			<% end %>
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:640:in `hidden_field'
+    app/views/boards/show.html.erb:34:in `_run_erb_47app47views47boards47show46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:248:in `fields_for'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:184:in `form_for'
+    app/views/boards/show.html.erb:16:in `_run_erb_47app47views47boards47show46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-06 21:22:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001387)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.01091 (91 reqs/sec) | Rendering: 0.00405 (37%) | DB: 0.00139 (12%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:22:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000299)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000200)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lg') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.09585 (10 reqs/sec) | Rendering: 0.00467 (4%) | DB: 0.00050 (0%) | 200 OK [http://localhost/lg]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2008-09-06 21:22:39) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"commit"=>"post new thread", "post"=>{"username"=>"Nokosage", "comment"=>"I SEE WHAT I DID THERE...\r\n\r\n...i think?", "email"=>"", "parent_board"=>"lg"}, "authenticity_token"=>"408eabe6a41449023abbae968dcbfac4891dcfff", "action"=>"create", "controller"=>"posts"}
+  [4;35;1mPost Create (0.000405)[0m   [0mINSERT INTO posts ("updated_at", "parent_thread", "attachment", "username", "deletion_password", "subject", "tripcode", "comment", "created_at", "email", "parent_board") VALUES('2008-09-06 21:22:39', NULL, NULL, 'Nokosage', NULL, NULL, NULL, 'I SEE WHAT I DID THERE...
+
+...i think?', '2008-09-06 21:22:39', '', NULL)[0m
+Redirected to http://localhost:3000/lg
+Completed in 0.01322 (75 reqs/sec) | DB: 0.00041 (3%) | 302 Found [http://localhost/posts/create]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:22:39) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIhlQb3N0IGFkZGVkIHRvIGJvYXJkIAY6CkB1c2VkewY7%0AB1Q%3D--0f15a2135a955803fc2dbdd2df7bb42d9fffe6a4
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.000280)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;35;1mPost Load (0.000159)[0m   [0mSELECT * FROM posts WHERE (posts."parent_board" = 'lg') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01434 (69 reqs/sec) | Rendering: 0.00227 (15%) | DB: 0.00044 (3%) | 200 OK [http://localhost/lg]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2008-09-06 21:23:07) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"commit"=>"post new thread", "post"=>{"username"=>"i think", "comment"=>"...i see what i did there?", "email"=>"", "parent_board"=>"lg"}, "authenticity_token"=>"408eabe6a41449023abbae968dcbfac4891dcfff", "action"=>"create", "controller"=>"posts"}
+  [4;36;1mPost Create (0.000407)[0m   [0;1mINSERT INTO posts ("updated_at", "parent_thread", "attachment", "username", "deletion_password", "subject", "tripcode", "comment", "created_at", "email", "parent_board") VALUES('2008-09-06 21:23:07', NULL, NULL, 'i think', NULL, NULL, NULL, '...i see what i did there?', '2008-09-06 21:23:07', '', 'lg')[0m
+Redirected to http://localhost:3000/lg
+Completed in 0.01271 (78 reqs/sec) | DB: 0.00041 (3%) | 302 Found [http://localhost/posts/create]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:23:07) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIhlQb3N0IGFkZGVkIHRvIGJvYXJkIAY6CkB1c2VkewY7%0AB1Q%3D--0f15a2135a955803fc2dbdd2df7bb42d9fffe6a4
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000345)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000325)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lg') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01568 (63 reqs/sec) | Rendering: 0.00358 (22%) | DB: 0.00067 (4%) | 200 OK [http://localhost/lg]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-06 21:24:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZGJjYjRmNThiN2FmYmRiN2YxZjk4Y2E4ZTE5NzY0%0AMmMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--189081f9e54332d8d4aef101b3165ffa0a568c91
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000384)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000377)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lg') [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01829 (54 reqs/sec) | Rendering: 0.00583 (31%) | DB: 0.00076 (4%) | 200 OK [http://localhost/lg]

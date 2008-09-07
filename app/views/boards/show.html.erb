@@ -23,13 +23,17 @@
 				<%= form.text_field :email, :size => 25, :class => 'textbox' %>
 				
 				<br/>
+
+				<%= form.label :subject %>
+				<%= form.text_field :subject, :size => 40, :class => 'textbox' %>
 				
-				<% # TODO: Add a subject field and migration task to the database %>
+				<br/>
 								
 				<%= form.label :comment %>
 				<%= form.text_area :comment, :rows => 4, :class => 'textbox' %>
 
 				<br/>
 				
+				<%= form.hidden_field :parent_board, :value => @board_info.shortcode %>
 				<%= submit_tag 'post new thread', :class => 'submit' %>
 			<% end %>
