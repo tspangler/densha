@@ -13,6 +13,11 @@ class PostsController < ApplicationController
     end
   end
   
+  def show
+    @post = Post.find(params[:post])
+    
+  end
+  
   def delete
     # Psuedocode: if session.admin? delete end
   end

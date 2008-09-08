@@ -9,8 +9,11 @@ div#content { padding:0 0 0 32px; }
 div#left_side {	width:200px; float:left; padding:0 20px 0 0; }
 div#left_side div { padding:0 5px 5px 5px; background:#b8def1; }
 
+div.post { padding:5px; background:#eee; margin:0 0 10px 0; }
+
 /*	Headers	*/
-h1 { margin:0; font-size:48px; letter-spacing:-2px; }
+h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
+h1 { font-size:48px; letter-spacing:-2px; }
 
 /*	Lists	*/
 dt { font: bold 1.5em Helvetica, Arial, sans-serif; letter-spacing:-1px; }
