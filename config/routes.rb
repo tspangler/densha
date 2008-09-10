@@ -33,6 +33,8 @@ ActionController::Routing::Routes.draw do |map|
   # aka chichan.org/lv maps to the Lakeview board with shortcode 'lv'
   map.connect '/:shortcode', :controller => 'boards', :action => 'show'
   map.connect '/:shortcode/post', :controller => 'posts', :action => 'create'
+  map.connect '/:shortcode/show/:id', :controller => 'posts', :action => 'show'
+
 
   # See how all your routes lay out with "rake routes"
 

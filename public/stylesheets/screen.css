@@ -2,6 +2,7 @@ body { margin:0; padding:0; background:#fff; font:13px Helvetica,sans-serif; }
 
 /*	Links	*/
 a { color:#ff2905; }
+a img { border:none; }
 
 /*	Basic structural divs	*/
 div#header { margin:0; padding:0; background:#fff url('/images/header_bg.jpg') no-repeat right top; width:100%; height:179px; border-bottom:1px solid black; }
@@ -22,3 +23,6 @@ dd { color:#555; }
 /*	Forms	*/
 form label { float:left; width:100px; text-transform:lowercase; letter-spacing:-1px; color:#a1a1a1; font: bold 1.2em Helvetica, Arial, sans-serif; }
 form .textbox { font: 1.2em Helvetica,Arial,sans-serif; }
+
+/*	Colors	*/
+h2 em { color:green; font-style:normal; }

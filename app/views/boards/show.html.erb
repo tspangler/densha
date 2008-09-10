@@ -10,7 +10,15 @@
 					<% if post.username == ''
 							post.username = 'Anonymous'
 						end	%>				
-					<h2>(#<%=h post.id %>) <%=h post.username %></h2>
+					<h2>
+						<em>
+						<%	if post.email != '' %>
+								<a href="mailto:<%=h post.email %>"><%=h post.username %></a>
+						<% else %>
+								<%=h post.username %>
+						<% end %>
+						</em>
+						 <small><%=h post.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h post.id %> <%= link_to "[Reply]", :controller => "posts", :action => "show", :id => post.id %></small></h2>
 					<p><%=h post.comment %></p>
 				</div>
 			<% end %>

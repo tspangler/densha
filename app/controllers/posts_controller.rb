@@ -14,7 +14,8 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find(params[:post])
+    @board_info = Board.find_by_shortcode(params[:shortcode])
+    @post = Post.find_by_id(params[:id])
     
   end
   
