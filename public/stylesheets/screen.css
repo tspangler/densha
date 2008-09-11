@@ -10,7 +10,9 @@ div#content { padding:0 0 0 32px; }
 div#left_side {	width:200px; float:left; padding:0 20px 0 0; }
 div#left_side div { padding:0 5px 5px 5px; background:#b8def1; }
 
-div.post { padding:5px; background:#eee; margin:0 0 10px 0; }
+div.create_post { clear:both; }
+div.post { clear:both; float:left; padding:5px; background:#eee; margin:0 0 10px 0; width:60%; }
+div.flash { padding:2px; border:1px solid #ccc; background:#F3FFB4; width:50%; margin:0 auto 10px auto; text-align:center; }
 
 /*	Headers	*/
 h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
@@ -25,4 +27,16 @@ form label { float:left; width:100px; text-transform:lowercase; letter-spacing:-
 form .textbox { font: 1.2em Helvetica,Arial,sans-serif; }
 
 /*	Colors	*/
-h2 em { color:green; font-style:normal; }
+.post h2 { font-size:10pt; }
+h2 em { color:green; font-style:normal; font-size:1.5em; letter-spacing:-1px; }
+
+/*	Images...since this IS an imageboard	*/
+.post img {
+	float:left;
+	margin:0 20px 0 0;
+}
+
+/*	Miscellaneous structural floats	*/
+.clear_both {
+	clear:both;
+}

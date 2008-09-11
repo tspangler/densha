@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/:shortcode', :controller => 'boards', :action => 'show'
   map.connect '/:shortcode/post', :controller => 'posts', :action => 'create'
   map.connect '/:shortcode/show/:id', :controller => 'posts', :action => 'show'
+  map.connect '/:shortcode/reply/:parent_thread', :controller => 'posts', :action => 'create'
 
 
   # See how all your routes lay out with "rake routes"

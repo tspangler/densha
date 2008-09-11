@@ -1,1 +1,70 @@
 <h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
+<% if @board_info.description != nil %>
+	<p><%= @board_info.description %></p>
+<% end %>
+
+<!--	TODO: HOLY CRAP REPETITIONS GALORE!	-->
+
+<div class="post">
+	<% @post.username = 'Anonymous' if @post.username == '' %>		
+	<h2>
+		<em>
+		<%	if @post.email != '' %>
+				<a href="mailto:<%=h @post.email %>"><%=h @post.username %></a>
+		<% else %>
+				<%=h @post.username %>
+		<% end %>
+		</em>
+		 <%=h @post.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h @post.id %></h2>
+	<img src="/images/post_temp.jpg" alt="<%=h @post.id %>" class="postImage" />
+	<p><%=h @post.comment %></p>
+</div>
+
+<h2 class="clear_both">Replies</h2>
+<!--	TODO:	Follow the Rails way and eliminate these repetitions! This should loop through a hash of posts and include a partial	-->
+	<% for reply in @replies %>
+		<div class="post">
+			<% reply.username = 'Anonymous' if reply.username == '' %>		
+			<h2>
+				<em>
+				<%	if reply.email != '' %>
+						<a href="mailto:<%=h reply.email %>"><%=h reply.username %></a>
+				<% else %>
+						<%=h reply.username %>
+				<% end %>
+				</em>
+				 <%=h reply.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h reply.id %></h2>
+			<img src="/images/post_temp.jpg" alt="<%=h reply.id %>" class="postImage" />
+			<p><%=h reply.comment %></p>
+		</div>
+	<% end %>
+
+<!-- TODO: Eliminate this repetition by using a partial	-->
+<div class="create_post">
+	<h2>Replying to post <%= h @post.id %></h2>
+		<%= error_messages_for :post -%>
+
+		<% form_for :post, :url => {:controller => 'posts', :action => 'create', :parent_thread => @post.id} do |form| %>
+			<%= form.label :username %>
+			<%= form.text_field :username, :size => 25, :class => 'textbox' %>
+
+			<br/>
+
+			<%= form.label :email %>
+			<%= form.text_field :email, :size => 25, :class => 'textbox' %>
+
+			<br/>
+
+			<%= form.label :subject %>
+			<%= form.text_field :subject, :size => 40, :class => 'textbox' %>
+
+			<br/>
+
+			<%= form.label :comment %>
+			<%= form.text_area :comment, :rows => 4, :columns => 48, :class => 'textbox' %>
+
+			<br/>
+
+			<%= submit_tag 'post reply', :class => 'submit' %>
+		<% end %>
+</div>

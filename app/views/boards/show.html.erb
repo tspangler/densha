@@ -1,15 +1,17 @@
 		<h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
-		<p><%=h @board_info.description %></p>
-
-		<% if flash[:notice] %>
-			<p><strong><%=h flash[:notice] %></strong></p>
+		<% if @board_info.description != nil %>
+			<p><%=h @board_info.description %></p>
 		<% end %>
-
+		
+		<% if flash[:notice] %>
+			<div class="flash">
+				<p><%=h flash[:notice] %></p>
+			</div>
+		<% end %>
+		
 			<% for post in @posts %>
 				<div class="post">
-					<% if post.username == ''
-							post.username = 'Anonymous'
-						end	%>				
+					<% post.username = 'Anonymous' if post.username == '' %>		
 					<h2>
 						<em>
 						<%	if post.email != '' %>
@@ -18,34 +20,37 @@
 								<%=h post.username %>
 						<% end %>
 						</em>
-						 <small><%=h post.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h post.id %> <%= link_to "[Reply]", :controller => "posts", :action => "show", :id => post.id %></small></h2>
+						 <%=h post.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h post.id %> <%= link_to "[Reply]", :controller => "posts", :action => "show", :id => post.id %></h2>
+					<img src="/images/post_temp.jpg" alt="<%=h post.id %>" class="postImage" />
 					<p><%=h post.comment %></p>
 				</div>
 			<% end %>
 			
-		<h2>Post a new thread</h2>
-			<%= error_messages_for :post -%>
-			
-			<% form_for :post, :url => {:controller => 'posts', :action => 'create'} do |form| %>
-				<%= form.label :username %>
-				<%= form.text_field :username, :size => 25, :class => 'textbox' %>
+			<div class="create_post">
+				<h2>Post a new thread</h2>
+					<%= error_messages_for :post -%>
 
-				<br/>
-				
-				<%= form.label :email %>
-				<%= form.text_field :email, :size => 25, :class => 'textbox' %>
-				
-				<br/>
+					<% form_for :post, :url => {:controller => 'posts', :action => 'create'} do |form| %>
+						<%= form.label :username %>
+						<%= form.text_field :username, :size => 25, :class => 'textbox' %>
 
-				<%= form.label :subject %>
-				<%= form.text_field :subject, :size => 40, :class => 'textbox' %>
-				
-				<br/>
-								
-				<%= form.label :comment %>
-				<%= form.text_area :comment, :rows => 4, :class => 'textbox' %>
+						<br/>
 
-				<br/>
-				
-				<%= submit_tag 'post new thread', :class => 'submit' %>
-			<% end %>
+						<%= form.label :email %>
+						<%= form.text_field :email, :size => 25, :class => 'textbox' %>
+
+						<br/>
+
+						<%= form.label :subject %>
+						<%= form.text_field :subject, :size => 40, :class => 'textbox' %>
+
+						<br/>
+
+						<%= form.label :comment %>
+						<%= form.text_area :comment, :rows => 4, :columns => 48, :class => 'textbox' %>
+
+						<br/>
+
+						<%= submit_tag 'post new thread', :class => 'submit' %>
+					<% end %>
+			</div>

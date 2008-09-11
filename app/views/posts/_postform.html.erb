@@ -1,1 +1,25 @@
-<!-- TODO: The form code goes here. -->
+<%= error_messages_for :post -%>
+
+<% form_for :post, :url => {:controller => 'posts', :action => 'create'} do |form| %>
+	<%= form.label :username %>
+	<%= form.text_field :username, :size => 25, :class => 'textbox' %>
+
+	<br/>
+	
+	<%= form.label :email %>
+	<%= form.text_field :email, :size => 25, :class => 'textbox' %>
+	
+	<br/>
+
+	<%= form.label :subject %>
+	<%= form.text_field :subject, :size => 40, :class => 'textbox' %>
+	
+	<br/>
+					
+	<%= form.label :comment %>
+	<%= form.text_area :comment, :rows => 4, :class => 'textbox' %>
+
+	<br/>
+	
+	<%= submit_tag 'post new thread', :class => 'submit' %>
+<% end %>

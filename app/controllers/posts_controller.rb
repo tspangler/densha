@@ -4,9 +4,11 @@ class PostsController < ApplicationController
     
     # Move the shortcode parameter into the @post hash so it gets saved
     @post.parent_board = params[:shortcode];
+    @post.parent_thread = params[:parent_thread];
     
     if @post.save
-      flash[:notice] = "Post added to board #{params[:shortcode]}"
+      # TODO: Implement noko here
+      flash[:notice] = "Post added successfully."
       redirect_to :back
     else
       render :action => 'create'
@@ -17,6 +19,8 @@ class PostsController < ApplicationController
     @board_info = Board.find_by_shortcode(params[:shortcode])
     @post = Post.find_by_id(params[:id])
     
+    # TODO: Modify query so it only returns replies, not parent threads
+    @replies = Post.find_all_by_parent_thread(params[:id], :order => "created_at DESC")
   end
   
   def delete
