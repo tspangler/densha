@@ -7,9 +7,13 @@ class PostsController < ApplicationController
     @post.parent_thread = params[:parent_thread];
     
     if @post.save
-      # TODO: Implement noko here
       flash[:notice] = "Post added successfully."
-      redirect_to :back
+
+      if @post.email == 'noko'
+        redirect_to :controller => 'posts', :action => 'show', :id => @post.id
+      else
+        redirect_to :controller => 'boards', :action => 'show', :shortcode => params[:shortcode]
+      end    
     else
       render :action => 'create'
     end

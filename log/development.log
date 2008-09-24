@@ -15054,3 +15054,1146 @@ Processing PostsController#show (for 127.0.0.1 at 2008-09-22 23:24:00) [GET]
 Rendering template within layouts/application
 Rendering posts/show
 Completed in 0.02086 (47 reqs/sec) | Rendering: 0.00815 (39%) | DB: 0.00170 (8%) | 200 OK [http://localhost/lv/show/27]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-23 20:50:51) [GET]
+  Session ID: cacb94fc030ca72f244fc634822c04c0
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001819)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.01648 (60 reqs/sec) | Rendering: 0.00786 (47%) | DB: 0.00182 (11%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-23 20:51:37) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--5ad7f9eb7b913d02f2ff2d405bce974d1b8ae475
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000253)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000971)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lg') AND (parent_thread is null) [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.02038 (49 reqs/sec) | Rendering: 0.00803 (39%) | DB: 0.00122 (6%) | 200 OK [http://localhost/lg]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-23 20:54:17) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000251)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000985)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lg') AND (parent_thread is null) [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01693 (59 reqs/sec) | Rendering: 0.00478 (28%) | DB: 0.00124 (7%) | 200 OK [http://localhost/lg]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 20:54:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "id"=>"46", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000247)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000297)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = '46') LIMIT 1[0m
+  [4;35;1mPost Load (0.000599)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" = '46') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.01924 (51 reqs/sec) | Rendering: 0.00786 (40%) | DB: 0.00114 (5%) | 200 OK [http://localhost/lg/show/46]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2008-09-23 20:54:28) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"commit"=>"post reply", "shortcode"=>"lg", "parent_thread"=>"46", "post"=>{"username"=>"", "subject"=>"", "comment"=>"no way, bitch.", "email"=>"noko"}, "authenticity_token"=>"06ca1c13a6ce9507a880d7490d8ee245c1951ee7", "action"=>"create", "controller"=>"posts"}
+  [4;36;1mPost Create (0.000451)[0m   [0;1mINSERT INTO posts ("updated_at", "parent_thread", "attachment", "username", "deletion_password", "subject", "tripcode", "comment", "created_at", "email", "parent_board") VALUES('2008-09-23 20:54:28', 46, NULL, '', NULL, '', NULL, 'no way, bitch.', '2008-09-23 20:54:28', 'noko', 'lg')[0m
+Redirected to http://localhost:3000/show/index/54?shortcode=lg
+Completed in 0.01342 (74 reqs/sec) | DB: 0.00045 (3%) | 302 Found [http://localhost/lg/reply/46]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-23 20:54:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lg"}
+
+
+ActionController::RoutingError (No route matches "/show/index/54" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 20:54:57) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "id"=>"46", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000263)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000314)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = '46') LIMIT 1[0m
+  [4;35;1mPost Load (0.000890)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" = '46') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.07404 (13 reqs/sec) | Rendering: 0.00471 (6%) | DB: 0.00147 (1%) | 200 OK [http://localhost/lg/show/46]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2008-09-23 20:55:03) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"commit"=>"post reply", "shortcode"=>"lg", "parent_thread"=>"46", "post"=>{"username"=>"", "subject"=>"", "comment"=>"fuck that", "email"=>"noko"}, "authenticity_token"=>"06ca1c13a6ce9507a880d7490d8ee245c1951ee7", "action"=>"create", "controller"=>"posts"}
+  [4;36;1mPost Create (0.000400)[0m   [0;1mINSERT INTO posts ("updated_at", "parent_thread", "attachment", "username", "deletion_password", "subject", "tripcode", "comment", "created_at", "email", "parent_board") VALUES('2008-09-23 20:55:03', 46, NULL, '', NULL, '', NULL, 'fuck that', '2008-09-23 20:55:03', 'noko', 'lg')[0m
+Redirected to http://localhost:3000/show/index/55
+Completed in 0.01247 (80 reqs/sec) | DB: 0.00040 (3%) | 302 Found [http://localhost/lg/reply/46]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-23 20:55:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/show/index/55" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 20:55:37) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"posts", "action"=>"show", "id"=>"55", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000142)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'posts') LIMIT 1[0m
+  [4;36;1mPost Load (0.000303)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = '55') LIMIT 1[0m
+  [4;35;1mPost Load (0.000513)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" = '55') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.shortcode) on line #1 of posts/show.html.erb:
+1: <h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
+2: <% if @board_info.description != nil %>
+3: 	<p><%= @board_info.description %></p>
+4: <% end %>
+
+    app/views/posts/show.html.erb:1:in `_run_erb_47app47views47posts47show46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-09-23 20:55:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/lg/posts/show/55" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 20:56:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "id"=>"46", "controller"=>"posts"}
+  [4;36;1mBoard Load (0.000255)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;35;1mPost Load (0.000344)[0m   [0mSELECT * FROM posts WHERE (posts."id" = '46') LIMIT 1[0m
+  [4;36;1mPost Load (0.001111)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_thread" = '46') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.01703 (58 reqs/sec) | Rendering: 0.00467 (27%) | DB: 0.00171 (10%) | 200 OK [http://localhost/lg/show/46]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2008-09-23 20:56:23) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"commit"=>"post reply", "shortcode"=>"lg", "parent_thread"=>"46", "post"=>{"username"=>"Not Anonymous", "subject"=>"", "comment"=>"sheeeeeit", "email"=>"noko"}, "authenticity_token"=>"06ca1c13a6ce9507a880d7490d8ee245c1951ee7", "action"=>"create", "controller"=>"posts"}
+  [4;35;1mPost Create (0.000379)[0m   [0mINSERT INTO posts ("updated_at", "parent_thread", "attachment", "username", "deletion_password", "subject", "tripcode", "comment", "created_at", "email", "parent_board") VALUES('2008-09-23 20:56:23', 46, NULL, 'Not Anonymous', NULL, '', NULL, 'sheeeeeit', '2008-09-23 20:56:23', 'noko', 'lg')[0m
+Redirected to http://localhost:3000/lg/show/56
+Completed in 0.01228 (81 reqs/sec) | DB: 0.00038 (3%) | 302 Found [http://localhost/lg/reply/46]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 20:56:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIh1Qb3N0IGFkZGVkIHN1Y2Nlc3NmdWxseS4GOgpAdXNl%0AZHsGOwdU--d8929628238faf92648b1c9e30c74e1a085dc414
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "id"=>"56", "controller"=>"posts"}
+  [4;36;1mBoard Load (0.000263)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;35;1mPost Load (0.000300)[0m   [0mSELECT * FROM posts WHERE (posts."id" = '56') LIMIT 1[0m
+  [4;36;1mPost Load (0.000587)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_thread" = '56') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.01540 (64 reqs/sec) | Rendering: 0.00434 (28%) | DB: 0.00115 (7%) | 200 OK [http://localhost/lg/show/56]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-23 21:01:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001289)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.00942 (106 reqs/sec) | Rendering: 0.00332 (35%) | DB: 0.00129 (13%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-23 21:01:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.000250)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;35;1mPost Load (0.000980)[0m   [0mSELECT * FROM posts WHERE (posts."parent_board" = 'lg') AND (parent_thread is null) [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01743 (57 reqs/sec) | Rendering: 0.00486 (27%) | DB: 0.00123 (7%) | 200 OK [http://localhost/lg]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:01:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "id"=>"31", "controller"=>"posts"}
+  [4;36;1mBoard Load (0.000249)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;35;1mPost Load (0.000297)[0m   [0mSELECT * FROM posts WHERE (posts."id" = '31') LIMIT 1[0m
+  [4;36;1mPost Load (0.000518)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_thread" = '31') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.01582 (63 reqs/sec) | Rendering: 0.00447 (28%) | DB: 0.00106 (6%) | 200 OK [http://localhost/lg/show/31]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2008-09-23 21:01:36) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"commit"=>"post reply", "shortcode"=>"lg", "parent_thread"=>"31", "post"=>{"username"=>"not noko", "subject"=>"", "comment"=>"i'm not nokoing this thread so i should go back to the board list", "email"=>""}, "authenticity_token"=>"06ca1c13a6ce9507a880d7490d8ee245c1951ee7", "action"=>"create", "controller"=>"posts"}
+  [4;35;1mPost Create (0.000790)[0m   [0mINSERT INTO posts ("updated_at", "parent_thread", "attachment", "username", "deletion_password", "subject", "tripcode", "comment", "created_at", "email", "parent_board") VALUES('2008-09-23 21:01:36', 31, NULL, 'not noko', NULL, '', NULL, 'i''m not nokoing this thread so i should go back to the board list', '2008-09-23 21:01:36', '', 'lg')[0m
+Redirected to http://localhost:3000/lg/show/31
+Completed in 0.01224 (81 reqs/sec) | DB: 0.00079 (6%) | 302 Found [http://localhost/lg/reply/31]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:01:36) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIh1Qb3N0IGFkZGVkIHN1Y2Nlc3NmdWxseS4GOgpAdXNl%0AZHsGOwdU--d8929628238faf92648b1c9e30c74e1a085dc414
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "id"=>"31", "controller"=>"posts"}
+  [4;36;1mBoard Load (0.000263)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;35;1mPost Load (0.000308)[0m   [0mSELECT * FROM posts WHERE (posts."id" = '31') LIMIT 1[0m
+  [4;36;1mPost Load (0.000753)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_thread" = '31') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.01661 (60 reqs/sec) | Rendering: 0.00460 (27%) | DB: 0.00132 (7%) | 200 OK [http://localhost/lg/show/31]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:06:33) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "id"=>"31", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000249)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000304)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = '31') LIMIT 1[0m
+  [4;35;1mPost Load (0.000730)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" = '31') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.01605 (62 reqs/sec) | Rendering: 0.00445 (27%) | DB: 0.00128 (7%) | 200 OK [http://localhost/lg/show/31]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:07:35) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"boards", "action"=>"show", "id"=>"lg", "controller"=>"posts"}
+  [4;36;1mBoard Load (0.000154)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'boards') LIMIT 1[0m
+  [4;35;1mPost Load (0.000197)[0m   [0mSELECT * FROM posts WHERE (posts."id" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000537)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_thread" = 'lg') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.shortcode) on line #1 of posts/show.html.erb:
+1: <h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
+2: <% if @board_info.description != nil %>
+3: 	<p><%= @board_info.description %></p>
+4: <% end %>
+
+    app/views/posts/show.html.erb:1:in `_run_erb_47app47views47posts47show46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:07:38) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"boards", "action"=>"show", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000145)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'boards') LIMIT 1[0m
+  [4;36;1mPost Load (0.000176)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" IS NULL) LIMIT 1[0m
+  [4;35;1mPost Load (0.003289)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" IS NULL) ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.shortcode) on line #1 of posts/show.html.erb:
+1: <h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
+2: <% if @board_info.description != nil %>
+3: 	<p><%= @board_info.description %></p>
+4: <% end %>
+
+    app/views/posts/show.html.erb:1:in `_run_erb_47app47views47posts47show46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:07:40) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"boards", "action"=>"show", "id"=>"1", "controller"=>"posts"}
+  [4;36;1mBoard Load (0.000147)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'boards') LIMIT 1[0m
+  [4;35;1mPost Load (0.000154)[0m   [0mSELECT * FROM posts WHERE (posts."id" = '1') LIMIT 1[0m
+  [4;36;1mPost Load (0.000528)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_thread" = '1') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.shortcode) on line #1 of posts/show.html.erb:
+1: <h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
+2: <% if @board_info.description != nil %>
+3: 	<p><%= @board_info.description %></p>
+4: <% end %>
+
+    app/views/posts/show.html.erb:1:in `_run_erb_47app47views47posts47show46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:07:41) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"boards", "action"=>"show", "id"=>"2", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000153)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'boards') LIMIT 1[0m
+  [4;36;1mPost Load (0.000188)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = '2') LIMIT 1[0m
+  [4;35;1mPost Load (0.000607)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" = '2') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.shortcode) on line #1 of posts/show.html.erb:
+1: <h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
+2: <% if @board_info.description != nil %>
+3: 	<p><%= @board_info.description %></p>
+4: <% end %>
+
+    app/views/posts/show.html.erb:1:in `_run_erb_47app47views47posts47show46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:07:42) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"boards", "action"=>"show", "id"=>"3", "controller"=>"posts"}
+  [4;36;1mBoard Load (0.000141)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'boards') LIMIT 1[0m
+  [4;35;1mPost Load (0.000205)[0m   [0mSELECT * FROM posts WHERE (posts."id" = '3') LIMIT 1[0m
+  [4;36;1mPost Load (0.000614)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_thread" = '3') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.shortcode) on line #1 of posts/show.html.erb:
+1: <h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
+2: <% if @board_info.description != nil %>
+3: 	<p><%= @board_info.description %></p>
+4: <% end %>
+
+    app/views/posts/show.html.erb:1:in `_run_erb_47app47views47posts47show46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-23 21:07:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"boards", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000142)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'boards') LIMIT 1[0m
+  [4;36;1mPost Load (0.000210)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'boards') AND (parent_thread is null) [0m
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.shortcode):
+    /app/controllers/boards_controller.rb:7:in `show'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:07:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"boards", "action"=>"show", "id"=>"lg", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000145)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'boards') LIMIT 1[0m
+  [4;36;1mPost Load (0.000204)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = 'lg') LIMIT 1[0m
+  [4;35;1mPost Load (0.000667)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" = 'lg') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.shortcode) on line #1 of posts/show.html.erb:
+1: <h1>/<%=h @board_info.shortcode %>/ &mdash; <%=h @board_info.name %></h1>
+2: <% if @board_info.description != nil %>
+3: 	<p><%= @board_info.description %></p>
+4: <% end %>
+
+    app/views/posts/show.html.erb:1:in `_run_erb_47app47views47posts47show46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:07:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "id"=>"31", "controller"=>"posts"}
+  [4;36;1mBoard Load (0.000252)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;35;1mPost Load (0.000313)[0m   [0mSELECT * FROM posts WHERE (posts."id" = '31') LIMIT 1[0m
+  [4;36;1mPost Load (0.000750)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_thread" = '31') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.01586 (63 reqs/sec) | Rendering: 0.00445 (28%) | DB: 0.00132 (8%) | 200 OK [http://localhost/lg/show/31]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:07:57) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lg", "action"=>"show", "id"=>"31", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000263)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lg') LIMIT 1[0m
+  [4;36;1mPost Load (0.000302)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = '31') LIMIT 1[0m
+  [4;35;1mPost Load (0.000729)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" = '31') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.01585 (63 reqs/sec) | Rendering: 0.00431 (27%) | DB: 0.00129 (8%) | 200 OK [http://localhost/lg/show/31]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-23 21:07:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001317)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.00911 (109 reqs/sec) | Rendering: 0.00329 (36%) | DB: 0.00132 (14%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-23 21:07:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lp", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000262)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lp') LIMIT 1[0m
+  [4;36;1mPost Load (0.000194)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lp') AND (parent_thread is null) [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01331 (75 reqs/sec) | Rendering: 0.00209 (15%) | DB: 0.00046 (3%) | 200 OK [http://localhost/lp]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-23 21:08:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.001269)[0m   [0mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.00915 (109 reqs/sec) | Rendering: 0.00345 (37%) | DB: 0.00127 (13%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-23 21:08:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lp", "action"=>"show", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.000248)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lp') LIMIT 1[0m
+  [4;35;1mPost Load (0.000187)[0m   [0mSELECT * FROM posts WHERE (posts."parent_board" = 'lp') AND (parent_thread is null) [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01298 (77 reqs/sec) | Rendering: 0.00208 (16%) | DB: 0.00043 (3%) | 200 OK [http://localhost/lp]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-23 21:08:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lp", "action"=>"show", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.000248)[0m   [0;1mSELECT * FROM boards WHERE (boards."shortcode" = 'lp') LIMIT 1[0m
+  [4;35;1mPost Load (0.000197)[0m   [0mSELECT * FROM posts WHERE (posts."parent_board" = 'lp') AND (parent_thread is null) [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01302 (76 reqs/sec) | Rendering: 0.00218 (16%) | DB: 0.00044 (3%) | 200 OK [http://localhost/lp]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2008-09-23 21:08:42) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"commit"=>"post new thread", "shortcode"=>"lp", "post"=>{"username"=>"", "subject"=>"", "comment"=>"sup /lp/\r\n\r\nI SHALL NOT BE MOVED!", "email"=>"noko"}, "authenticity_token"=>"06ca1c13a6ce9507a880d7490d8ee245c1951ee7", "action"=>"create", "controller"=>"posts"}
+  [4;36;1mPost Create (0.000382)[0m   [0;1mINSERT INTO posts ("updated_at", "parent_thread", "attachment", "username", "deletion_password", "subject", "tripcode", "comment", "created_at", "email", "parent_board") VALUES('2008-09-23 21:08:42', NULL, NULL, '', NULL, '', NULL, 'sup /lp/
+
+I SHALL NOT BE MOVED!', '2008-09-23 21:08:42', 'noko', 'lp')[0m
+Redirected to http://localhost:3000/lp/show/58
+Completed in 0.01152 (86 reqs/sec) | DB: 0.00038 (3%) | 302 Found [http://localhost/lp/post]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:08:42) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIh1Qb3N0IGFkZGVkIHN1Y2Nlc3NmdWxseS4GOgpAdXNl%0AZHsGOwdU--d8929628238faf92648b1c9e30c74e1a085dc414
+  Parameters: {"shortcode"=>"lp", "action"=>"show", "id"=>"58", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000250)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lp') LIMIT 1[0m
+  [4;36;1mPost Load (0.000299)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = '58') LIMIT 1[0m
+  [4;35;1mPost Load (0.000559)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" = '58') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.01545 (64 reqs/sec) | Rendering: 0.00431 (27%) | DB: 0.00111 (7%) | 200 OK [http://localhost/lp/show/58]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-23 21:08:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001294)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.00944 (105 reqs/sec) | Rendering: 0.00340 (35%) | DB: 0.00129 (13%) | 200 OK [http://localhost/]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-23 21:08:45) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lp", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000252)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lp') LIMIT 1[0m
+  [4;36;1mPost Load (0.000340)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lp') AND (parent_thread is null) [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01499 (66 reqs/sec) | Rendering: 0.00360 (24%) | DB: 0.00059 (3%) | 200 OK [http://localhost/lp]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:08:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lp", "action"=>"show", "id"=>"58", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000247)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lp') LIMIT 1[0m
+  [4;36;1mPost Load (0.000303)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = '58') LIMIT 1[0m
+  [4;35;1mPost Load (0.000528)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" = '58') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.01529 (65 reqs/sec) | Rendering: 0.00427 (27%) | DB: 0.00108 (7%) | 200 OK [http://localhost/lp/show/58]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2008-09-23 21:08:59) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"commit"=>"post reply", "shortcode"=>"lp", "parent_thread"=>"58", "post"=>{"username"=>"Anonymous", "subject"=>"", "comment"=>"you suck, that's what.", "email"=>""}, "authenticity_token"=>"06ca1c13a6ce9507a880d7490d8ee245c1951ee7", "action"=>"create", "controller"=>"posts"}
+  [4;36;1mPost Create (0.000399)[0m   [0;1mINSERT INTO posts ("updated_at", "parent_thread", "attachment", "username", "deletion_password", "subject", "tripcode", "comment", "created_at", "email", "parent_board") VALUES('2008-09-23 21:08:59', 58, NULL, 'Anonymous', NULL, '', NULL, 'you suck, that''s what.', '2008-09-23 21:08:59', '', 'lp')[0m
+Redirected to http://localhost:3000/lp
+Completed in 0.01217 (82 reqs/sec) | DB: 0.00040 (3%) | 302 Found [http://localhost/lp/reply/58]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-23 21:08:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIh1Qb3N0IGFkZGVkIHN1Y2Nlc3NmdWxseS4GOgpAdXNl%0AZHsGOwdU--d8929628238faf92648b1c9e30c74e1a085dc414
+  Parameters: {"shortcode"=>"lp", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000249)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lp') LIMIT 1[0m
+  [4;36;1mPost Load (0.000340)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lp') AND (parent_thread is null) [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01481 (67 reqs/sec) | Rendering: 0.00359 (24%) | DB: 0.00059 (3%) | 200 OK [http://localhost/lp]
+
+
+Processing BoardsController#show (for 127.0.0.1 at 2008-09-23 21:09:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lp", "action"=>"show", "controller"=>"boards"}
+  [4;35;1mBoard Load (0.000251)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lp') LIMIT 1[0m
+  [4;36;1mPost Load (0.000332)[0m   [0;1mSELECT * FROM posts WHERE (posts."parent_board" = 'lp') AND (parent_thread is null) [0m
+Rendering template within layouts/application
+Rendering boards/show
+Completed in 0.01449 (69 reqs/sec) | Rendering: 0.00344 (23%) | DB: 0.00058 (4%) | 200 OK [http://localhost/lp]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2008-09-23 21:09:05) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"shortcode"=>"lp", "action"=>"show", "id"=>"58", "controller"=>"posts"}
+  [4;35;1mBoard Load (0.000249)[0m   [0mSELECT * FROM boards WHERE (boards."shortcode" = 'lp') LIMIT 1[0m
+  [4;36;1mPost Load (0.000350)[0m   [0;1mSELECT * FROM posts WHERE (posts."id" = '58') LIMIT 1[0m
+  [4;35;1mPost Load (0.000722)[0m   [0mSELECT * FROM posts WHERE (posts."parent_thread" = '58') ORDER BY created_at DESC[0m
+Rendering template within layouts/application
+Rendering posts/show
+Completed in 0.07619 (13 reqs/sec) | Rendering: 0.00460 (6%) | DB: 0.00132 (1%) | 200 OK [http://localhost/lp/show/58]
+
+
+Processing BoardsController#index (for 127.0.0.1 at 2008-09-23 21:09:10) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYzVkMDZiYzlmNDliNTg3YWI2YjYyYzE2NTBiZTc5%0AZjMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--872a5b11dd7d9799900f74fb89c7593933da4b06
+  Parameters: {"action"=>"index", "controller"=>"boards"}
+  [4;36;1mBoard Load (0.001254)[0m   [0;1mSELECT * FROM boards ORDER BY shortcode[0m
+Rendering template within layouts/application
+Rendering boards/index
+Completed in 0.00936 (106 reqs/sec) | Rendering: 0.00344 (36%) | DB: 0.00125 (13%) | 200 OK [http://localhost/]
