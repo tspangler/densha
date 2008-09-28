@@ -9,28 +9,27 @@
 			</div>
 		<% end %>
 		
-			<% for post in @posts %>
-				<div class="post">
-					<% post.username = 'Anonymous' if post.username == '' %>		
-					<h2>
-						<em>
-						<%	if post.email != '' %>
-								<a href="mailto:<%=h post.email %>"><%=h post.username %></a>
-						<% else %>
-								<%=h post.username %>
-						<% end %>
-						</em>
-						 <%=h post.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h post.id %> <%= link_to "[Reply]", :controller => "posts", :action => "show", :id => post.id %></h2>
-					<img src="/images/post_temp.jpg" alt="<%=h post.id %>" class="postImage" />
-					<p><%=h post.comment %></p>
-				</div>
-			<% end %>
+		<% for topic in @topics %>
+			<div class="post">
+				<h2>
+					<em>
+					<%	if topic.email %>
+						<a href="mailto:<%=h topic.email %>"><%=h topic.username %></a>
+					<% else %>
+						<%=h topic.username %>
+					<% end %>
+					</em>
+					 <%=h topic.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h topic.id %> <%= link_to "[Reply]", :controller => "topics", :action => "show", :id => topic.id %></h2>
+				<img src="/images/post_temp.jpg" alt="<%=h topic.id %>" class="postImage" />
+				<p><%=h topic.comment %></p>
+			</div>
+		<% end %>
 			
 			<div class="create_post">
 				<h2>Post a new thread</h2>
 					<%= error_messages_for :post -%>
 
-					<% form_for :post, :url => {:controller => 'posts', :action => 'create'} do |form| %>
+					<% form_for :post, :url => {:controller => 'topics', :action => 'create'} do |form| %>
 						<%= form.label :username %>
 						<%= form.text_field :username, :size => 25, :class => 'textbox' %>
 

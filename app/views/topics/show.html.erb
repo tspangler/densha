@@ -1,0 +1,65 @@
+<!--	TODO: HOLY CRAP REPETITIONS GALORE!	-->
+
+<div class="post">
+	<% @topic.username = 'Anonymous' if @topic.username == '' %>		
+	<h2>
+		<em>
+		<%	if @topic.email != '' %>
+				<a href="mailto:<%=h @topic.email %>"><%=h @topic.username %></a>
+		<% else %>
+				<%=h @topic.username %>
+		<% end %>
+		</em>
+		 <%=h @topic.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h @topic.id %></h2>
+	<img src="/images/post_temp.jpg" alt="<%=h @topic.id %>" class="postImage" />
+	<p><%=h @topic.comment %></p>
+</div>
+
+<h2 class="clear_both">Replies</h2>
+<!--	TODO:	Follow the Rails way and eliminate these repetitions! This should loop through a hash of posts and include a partial	-->
+	<% for post in @posts %>
+		<div class="post">
+			<% post.username = 'Anonymous' if post.username == '' %>		
+			<h2>
+				<em>
+				<%	if post.email != '' %>
+						<a href="mailto:<%=h post.email %>"><%=h post.username %></a>
+				<% else %>
+						<%=h post.username %>
+				<% end %>
+				</em>
+				 <%=h post.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h post.id %></h2>
+			<img src="/images/post_temp.jpg" alt="<%=h post.id %>" class="postImage" />
+			<p><%=h post.comment %></p>
+		</div>
+	<% end %>
+
+<!-- TODO: Eliminate this repetition by using a partial	-->
+<div class="create_post">
+	<h2>Replying to post <%= h @topic.id %></h2>
+		<%= error_messages_for :post -%>
+
+		<% form_for :post, :url => {:controller => 'posts', :action => 'reply', :topic_id => @topic.id} do |form| %>
+			<%= form.label :username %>
+			<%= form.text_field :username, :size => 25, :class => 'textbox' %>
+
+			<br/>
+
+			<%= form.label :email %>
+			<%= form.text_field :email, :size => 25, :class => 'textbox' %>
+
+			<br/>
+
+			<%= form.label :subject %>
+			<%= form.text_field :subject, :size => 40, :class => 'textbox' %>
+
+			<br/>
+
+			<%= form.label :comment %>
+			<%= form.text_area :comment, :rows => 4, :columns => 48, :class => 'textbox' %>
+
+			<br/>
+
+			<%= submit_tag 'post reply', :class => 'submit' %>
+		<% end %>
+</div>

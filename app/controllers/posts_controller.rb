@@ -19,14 +19,6 @@ class PostsController < ApplicationController
     end
   end
   
-  def show
-    @board_info = Board.find_by_shortcode(params[:shortcode])
-    @post = Post.find_by_id(params[:id])
-    
-    # TODO: Modify query so it only returns replies, not parent threads
-    @replies = Post.find_all_by_parent_thread(params[:id], :order => "created_at DESC")
-  end
-  
   def delete
     # Psuedocode: if session.admin? delete end
   end
