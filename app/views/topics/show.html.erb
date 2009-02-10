@@ -37,9 +37,9 @@
 <!-- TODO: Eliminate this repetition by using a partial	-->
 <div class="create_post">
 	<h2>Replying to post <%= h @topic.id %></h2>
-		<%= error_messages_for :post -%>
+		<%= error_messages_for :reply -%>
 
-		<% form_for :post, :url => {:controller => 'posts', :action => 'reply', :topic_id => @topic.id} do |form| %>
+		<% form_for :reply, :url => {:controller => 'topics', :action => 'reply', :topic_id => @topic.id} do |form| %>
 			<%= form.label :username %>
 			<%= form.text_field :username, :size => 25, :class => 'textbox' %>
 
