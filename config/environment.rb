@@ -1,5 +1,6 @@
 # Densha site-wide settings
 SITE_NAME = 'Densha'
+DEFAULT_NAME = 'Chinonymous'
 
 # Be sure to restart your server when you modify this file
 

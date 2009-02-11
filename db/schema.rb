@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 5) do
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "username",                        :default => "Anonymous"
+    t.string   "username"
     t.string   "tripcode"
     t.string   "email"
     t.text     "comment"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 5) do
   end
 
   create_table "topics", :force => true do |t|
-    t.string   "username",   :default => "Anonymous"
+    t.string   "username"
     t.string   "tripcode"
     t.string   "subject"
     t.string   "email"

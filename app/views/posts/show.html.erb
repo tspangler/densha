@@ -6,7 +6,7 @@
 <!--	TODO: HOLY CRAP REPETITIONS GALORE!	-->
 
 <div class="post">
-	<% @post.username = 'Anonymous' if @post.username == '' %>		
+	<% @post.username = DEFAULT_NAME if @post.username == '' %>		
 	<h2>
 		<em>
 		<%	if @post.email != '' %>

@@ -1,7 +1,7 @@
 <!--	TODO: HOLY CRAP REPETITIONS GALORE!	-->
 
 <div class="post">
-	<% @topic.username = 'Anonymous' if @topic.username == '' %>		
+	<% @topic.username = DEFAULT_NAME if @topic.username == '' %>		
 	<h2>
 		<em>
 		<%	if @topic.email != '' %>

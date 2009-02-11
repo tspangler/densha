@@ -6,13 +6,14 @@ class TopicsController < ApplicationController
   def create
     # Create a new topic object with the data from the POST
     @topic = Topic.new(params[:post])
+    @topic.board_id = Board.find_by_shortcode(params[:shortcode]˝).id
     
     if @topic.save
       flash[:notice] = 'Topic created successfully.'
     else
-      render :action => 'create'
+      flash[:notice] = 'Topic could NOT be created.'
     end
-    
+      redirect_to :controller => 'boards', :action => 'show', :shortcode => params[:shortcode]    
   end
   
   def reply
