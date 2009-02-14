@@ -15,6 +15,11 @@
 	<%= form.text_field :subject, :size => 40, :class => 'textbox' %>
 	
 	<br/>
+	
+	<%= form.label :attachment %>
+	<%= file_field('attachment', 'attachment', :class => 'textinput') %>
+	
+	<br/>
 					
 	<%= form.label :comment %>
 	<%= form.text_area :comment, :rows => 4, :class => 'textbox' %>

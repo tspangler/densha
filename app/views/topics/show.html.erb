@@ -29,8 +29,10 @@
 				<% end %>
 				</em>
 				 <%=h post.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h post.id %></h2>
-			<img src="/images/post_temp.jpg" alt="<%=h post.id %>" class="postImage" />
+			<a href="<%=h post.public_filename %>"><img src="<%=h post.public_filename(:thumb) %>" alt="<%=h post.id %>" class="postImage" /></a>
 			<p><%=h post.comment %></p>
+
+			<p class="file_size">File :<a href="<%=h post.public_filename %>"><%=h post.filename %></a>-(<%=h post.size %> bytes, <%=h post.width %>x<%=h post.height %>)</p>
 		</div>
 	<% end %>
 
@@ -39,7 +41,7 @@
 	<h2>Replying to post <%= h @topic.id %></h2>
 		<%= error_messages_for :reply -%>
 
-		<% form_for :reply, :url => {:controller => 'topics', :action => 'reply', :topic_id => @topic.id} do |form| %>
+		<% form_for :reply, :html => { :multipart => true }, :url => {:controller => 'topics', :action => 'reply', :topic_id => @topic.id} do |form| %>
 			<%= form.label :username %>
 			<%= form.text_field :username, :size => 25, :class => 'textbox' %>
 
@@ -53,6 +55,11 @@
 			<%= form.label :subject %>
 			<%= form.text_field :subject, :size => 40, :class => 'textbox' %>
 
+			<br/>
+
+			<%= form.label :attachment %>
+			<%= form.file_field :uploaded_data %>
+			
 			<br/>
 
 			<%= form.label :comment %>

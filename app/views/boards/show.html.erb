@@ -10,12 +10,13 @@
 		<% end %>
 		
 		<% for topic in @topics %>
+		<% topic.username = DEFAULT_NAME if topic.username == '' %>
 			<div class="post">
 				<h2>
 					<em>
-					<%	if topic.email %>
+					<%	if topic.email != '' %>
 						<a href="mailto:<%=h topic.email %>"><%=h topic.username %></a>
-					<% else %>
+					<% else %>		
 						<%=h topic.username %>
 					<% end %>
 					</em>

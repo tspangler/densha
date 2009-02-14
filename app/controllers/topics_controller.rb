@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
   def create
     # Create a new topic object with the data from the POST
     @topic = Topic.new(params[:post])
-    @topic.board_id = Board.find_by_shortcode(params[:shortcode]˝).id
+    @topic.board_id = Board.find_by_shortcode(params[:shortcode]).id
     
     if @topic.save
       flash[:notice] = 'Topic created successfully.'
@@ -21,7 +21,7 @@ class TopicsController < ApplicationController
     @reply.topic_id = params[:topic_id]
     
     if @reply.save
-      flash[:notice] = 'Replied to post'
+      flash[:notice] = 'Replied to post, image saved'
       redirect_to :controller => 'topics', :action => 'show', :id => @reply.topic_id
     else
       render :action => 'show'
@@ -29,7 +29,6 @@ class TopicsController < ApplicationController
   end
 
   def show
-    # @board_info = Board.find_by_shortcode(params[:shortcode])
     @topic = Topic.find(params[:id])
     
     @posts = @topic.posts
