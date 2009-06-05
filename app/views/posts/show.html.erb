@@ -33,7 +33,7 @@
 						<%=h reply.username %>
 				<% end %>
 				</em>
-				 <%=h reply.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h reply.id %></h2>
+				 <%=h reply.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<a href="#" id="reply-<%=h reply.id %>"><%=h reply.id %></a></h2>
 			<img src="/images/post_temp.jpg" alt="<%=h reply.id %>" class="postImage" />
 			<p><%=h reply.comment %></p>
 		</div>

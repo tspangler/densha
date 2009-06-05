@@ -40,6 +40,11 @@
 						<%= form.text_field :email, :size => 25, :class => 'textbox' %>
 
 						<br/>
+						
+						<%= form.label :attachment %>
+						<%= file_field('attachment', 'attachment', :class => 'textinput') %>
+
+						<br/>
 
 						<%= form.label :subject %>
 						<%= form.text_field :subject, :size => 40, :class => 'textbox' %>

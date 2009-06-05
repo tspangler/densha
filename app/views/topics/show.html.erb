@@ -10,7 +10,7 @@
 				<%=h @topic.username %>
 		<% end %>
 		</em>
-		 <%=h @topic.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h @topic.id %></h2>
+		 <%=h @topic.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<a href="#" id="reply-<%=h @topic.id %>" class="replier"><%=h @topic.id %></a></h2>
 	<img src="/images/post_temp.jpg" alt="<%=h @topic.id %>" class="postImage" />
 	<p><%=h @topic.comment %></p>
 </div>
@@ -28,7 +28,7 @@
 						<%=h post.username %>
 				<% end %>
 				</em>
-				 <%=h post.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<%=h post.id %></h2>
+				 <%=h post.created_at.strftime('%m/%d/%y(%a)%H:%M:%S') %> No.<a href="#" id="reply-<%=h post.id %>" class="replier"><%=h post.id %></a></h2>
 			<a href="<%=h post.public_filename %>"><img src="<%=h post.public_filename(:thumb) %>" alt="<%=h post.id %>" class="postImage" /></a>
 			<p><%=h post.comment %></p>
 

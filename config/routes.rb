@@ -29,13 +29,15 @@ ActionController::Routing::Routes.draw do |map|
   
   map.root :controller => "boards"
   
+  # TODO: Uncomment all of these routes when things get more stable.
+  
   # Map routes for boards based on shortcodes
   # aka chichan.org/lv maps to the Lakeview board with shortcode 'lv'
-  map.connect '/:shortcode', :controller => 'boards', :action => 'show'
-  map.connect '/:shortcode/topics/create', :controller => 'topics', :action => 'create'
-  map.connect '/:shortcode/post', :controller => 'posts', :action => 'create'
-  map.connect '/:shortcode/show/:id', :controller => 'topics', :action => 'show'
-  map.connect '/:shortcode/reply/:parent_thread', :controller => 'posts', :action => 'create'
+  #map.connect '/:shortcode', :controller => 'boards', :action => 'show'
+  #map.connect '/:shortcode/topics/create', :controller => 'topics', :action => 'create'
+  #map.connect '/:shortcode/post', :controller => 'posts', :action => 'create'
+  #map.connect '/:shortcode/show/:id', :controller => 'topics', :action => 'show'
+  #map.connect '/:shortcode/reply/:parent_thread', :controller => 'posts', :action => 'create'
 
 
   # See how all your routes lay out with "rake routes"
